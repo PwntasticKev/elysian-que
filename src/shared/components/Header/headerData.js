@@ -24,7 +24,7 @@ export const headerData = [
     link: "https://drumteacherutah.com/students",
   },
   {
-    text: "Student Que",
-    link: "/que",
+    text: "Que",
+    link: "https://drumteacherutah.com/subdomain/que",
   },
 ];
