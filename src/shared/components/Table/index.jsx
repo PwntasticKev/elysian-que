@@ -1,15 +1,27 @@
-function Table(props) {
+import Modal from "../Modal";
+import { useState } from "react";
+
+function Table() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
-      <table className="table-auto w-full">
+      <button
+        className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        type="button"
+        onClick={() => setShowModal(true)}
+      >
+        Open regular modal
+      </button>
+      <table className="table-auto w-full text-left">
         <thead>
-          <tr>
+          <tr className="text-left">
             <th>Location</th>
             <th>Date</th>
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-left">
           <tr>
             <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
             <td>Malcolm Lockyer</td>
@@ -27,6 +39,7 @@ function Table(props) {
           </tr>
         </tbody>
       </table>
+      <Modal showModal={showModal} setShowModal={setShowModal}></Modal>
     </>
   );
 }

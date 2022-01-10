@@ -10,7 +10,7 @@ function Header() {
       <nav className="hidden lg:flex items-center justify-between">
         {headerData.map((item, index) => (
           <a
-            className="ease-in-out duration-300 hover:text-primary m-3 uppercase text-sm font-bold"
+            className="ease-in-out duration-300 hover:text-primary m-5 uppercase text-sm font-bold"
             key={index}
             href={item.link}
           >
