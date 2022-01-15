@@ -1,0 +1,160 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model carriculum {
+  id          Int     @id @default(autoincrement())
+  name        String?
+  description String?
+  highlights  String?
+  media       String?
+  attachments String?
+  sub_tasks   String?
+  updated_at  String?
+  created_at  String?
+  student_id  String?
+}
+
+model events {
+  id                  Int     @id @default(autoincrement())
+  eventListId         Int?
+  event_name          String?
+  created_at          String?
+  updated_at          String?
+  deleted             String?
+  media               String?
+  google_place_id     String?
+  partner_id          String?
+  description         String?
+  last_status_changed String?
+  status              String?
+  location_name       String?
+  address             String?
+  time                String?
+  sound_types         String?
+  points              String?
+}
+
+model que {
+  id            Int       @id @default(autoincrement())
+  user_id       Int?
+  location      String?
+  date          String?
+  time          String?
+  created_at    DateTime? @db.Timestamp(6)
+  status        String?
+  student_name  String?
+  student_id    Int?
+  student_phone Int?
+  expired       Int?
+  updated_at    DateTime? @db.Timestamp(6)
+}
+
+model students {
+  student_id       Int?
+  name             String?
+  description      String?
+  email            String?
+  media            String?
+  tasks_completed  String?
+  created_at       DateTime? @db.Timestamp(6)
+  updated_at       DateTime? @db.Timestamp(6)
+  deleted          DateTime? @db.Timestamp(6)
+  rank             String?
+  age              String?
+  remember_token   String?
+  make_up_days     String?
+  tasks_assigned   String?
+  files            String?
+  achievements     String?
+  clan_id          String?
+  activity_data    String?
+  current_points   String?
+  privacy_settings String?
+  phone            String?
+  task_id          String?
+  id               Int       @id @unique @default(autoincrement())
+}
+
+model sub_tasks {
+  id        Int      @id @default(autoincrement())
+  task_id   Int?
+  name      String?
+  completed Boolean?
+}
+
+model tasks {
+  id          Int      @id(map: "Tasks_pkey") @default(autoincrement())
+  name        String?  @db.VarChar(50)
+  category    String?
+  difficulty  String?
+  points      Int?
+  created_at  String?
+  updated_at  String?
+  deleted     String?
+  attachments String?
+  sub_tasks   String?
+  student_id  Decimal? @db.Decimal(10, 0)
+  highlights  String?  @db.VarChar(50)
+  media       String?
+  description String?
+  completed   Decimal? @default(0) @db.Decimal(10, 0)
+}
+
+model teachers {
+  id       Int     @id @default(autoincrement())
+  name     String?
+  password String?
+  email    String? @unique
+}
+
+model users {
+  id         Int       @id(map: "Users_pkey") @default(autoincrement())
+  user       String?   @db.VarChar
+  first_name String?   @db.VarChar
+  last_name  String?   @db.VarChar
+  email      String?   @unique @db.VarChar
+  password   String?   @db.VarChar
+  created_at DateTime? @db.Timestamp(6)
+  updated_at DateTime? @db.Timestamp(6)
+  nickname   String?   @db.VarChar
+  given_name String?   @db.VarChar
+  picture    String?
+  name       String?
+}
+
+model venues {
+  id              Int       @id @default(autoincrement())
+  name            String?   @db.VarChar
+  description     String?   @db.VarChar
+  phone           Int?
+  email           String?   @db.VarChar
+  long            Decimal?  @db.Decimal
+  lat             Decimal?  @db.Decimal
+  media           String?
+  address         String?   @db.VarChar
+  created_at      DateTime? @db.Timestamp(6)
+  updated_at      DateTime? @db.Timestamp(6)
+  status          String?   @db.VarChar
+  last_called     DateTime? @db.Timestamp(6)
+  last_emailed    DateTime? @db.Timestamp(6)
+  hours           String?
+  notes           String?   @db.VarChar
+  google_place_id String?   @db.VarChar
+  venue_pin       Int?
+  neighborhood    String?
+  city            String?
+  state           String?
+  zip             String?
+  website         String?
+  lgbt_promoted   String?
+  music1          String?
+  music2          String?
+  music3          String?
+  capacity        String?
+}

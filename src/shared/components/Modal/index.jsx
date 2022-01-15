@@ -5,9 +5,12 @@ export default function Modal({ showModal, setShowModal }) {
     <>
       {showModal ? (
         <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-white">
-            <div className="bg-white relative w-auto my-6 mx-auto max-w-3xl">
-              <div className="bg-white border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
+            <div
+              className=" relative w-auto my-6 mx-auto max-w-3xl"
+              style={{ background: "white" }}
+            >
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full  outline-none focus:outline-none ">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                   <h3 className="text-3xl font-semibold">Modal Title</h3>
                   <button
@@ -19,17 +22,16 @@ export default function Modal({ showModal, setShowModal }) {
                     </span>
                   </button>
                 </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
+                <div className="relative p-6 flex-auto z-30">
                   <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That’s the main
+                    I always felt like I could do anything. That\&#39;s the main
                     thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
+                    of themselves! They\&#39;re slowed down by their perception
+                    of themselves. If you\&#39;re taught you can\&#39;t do
+                    anything, you won\&#39;t do anything. I was taught I could
+                    do everything.
                   </p>
                 </div>
-                {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"

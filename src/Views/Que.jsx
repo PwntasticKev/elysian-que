@@ -14,11 +14,11 @@ function Que() {
   }, []);
 
   return (
-    <div className="">
+    <div>
       <h2 className="m-0 font-bold text-xl divide-y divide-solid mb-5">
         Available Times
       </h2>
-      <Table data={ques} />
+      <Table ques={ques} />
     </div>
   );
 }
