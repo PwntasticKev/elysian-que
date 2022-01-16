@@ -12,10 +12,8 @@ app.use(bodyParser.json());
 app.use("/", express.static("./public"));
 
 app.get("/test", async function (req, res) {
-  console.log("gettin smacked", prisma);
   const allQues = await prisma.que.findMany();
-  console.log(allQues);
-  res.sendStatus(200);
+  res.status(200).send(allQues);
 });
 
 app.listen(5000, () => {

@@ -1,21 +1,14 @@
 // eslint-disable-next-line no-unused-vars
-import Modal from "../Modal";
+import Modal from "./Modals/WaitList";
 import { useState } from "react";
 
-function Table() {
+function Table(props) {
+  const [modalData, setModalData] = useState({});
   const [showModal, setShowModal] = useState(false);
-  // const [modalData, setModalData] = useState({});
 
   return (
-    <div>
-      <button
-        className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-        type="button"
-        onClick={() => setShowModal(true)}
-      >
-        Open regular modal
-      </button>
-      <table className="table-auto w-full text-left">
+    <>
+      <table className="table-auto w-full text-left dark:bg-slate-900 dark:text-slate-400">
         <thead>
           <tr className="text-left">
             <th>Location</th>
@@ -24,25 +17,30 @@ function Table() {
           </tr>
         </thead>
         <tbody className="text-left">
-          <tr className="bg-none text-rose-600">
-            <td
-              className="text-rose-600"
-              type="button"
-              onClick={() => setShowModal(true)}
-            >
-              The Sliding Mr. Bones (Next Stop, Pottersville)
-            </td>
-          </tr>
-          <tr>
-            <td>Witchy Woman</td>
-          </tr>
-          <tr>
-            <td>Shining Star</td>
-          </tr>
+          {props.ques.map((que) => (
+            <tr key={que.id} className="bg-none">
+              <td
+                className=""
+                type="button"
+                onClick={() => {
+                  setModalData(que);
+                  setShowModal(true);
+                }}
+              >
+                {que.location}
+              </td>
+              <td>{que.time}</td>
+              <td>{que.status}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
-      <Modal showModal={showModal} setShowModal={setShowModal}></Modal>
-    </div>
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        modalData={modalData}
+      ></Modal>
+    </>
   );
 }
 
