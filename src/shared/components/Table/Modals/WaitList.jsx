@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Modal({ showModal, setShowModal, modalData }) {
-  console.log(modalData, "DAAAA");
+export default function Modal(props) {
+  console.log(props.modalData, "DAAAA");
   return (
     <>
-      {showModal ? (
+      {props.showModal ? (
         <>
           <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
@@ -17,11 +17,12 @@ export default function Modal({ showModal, setShowModal, modalData }) {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none dark:bg-slate-900 dark:text-slate-400">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                   <h5 className="text-xl text-center font-semibold dark:text-white">
-                    Join wait list for {modalData.time} in {modalData.location}
+                    Join wait list for {props.modalData.time} in{" "}
+                    {props.modalData.location}
                   </h5>
                   <button
-                    className="p-1 ml-auto bg-transparent border-0 opacity-8 float-right text-3xl leading-none font-semibold outline-none focus:outline-none text-black dark:text-white"
-                    onClick={() => setShowModal(false)}
+                    className="p-1 ml-auto bg-transparent border-0 text-3xl text-black dark:text-white"
+                    onClick={() => props.setShowModal(false)}
                   >
                     <span className="h-6 w-6 text-2xl block">×</span>
                   </button>
@@ -39,7 +40,7 @@ export default function Modal({ showModal, setShowModal, modalData }) {
                   <button
                     className="w-full bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => props.setShowClaimModal(true)}
                   >
                     Join Waitlist
                   </button>

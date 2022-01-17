@@ -1,14 +1,16 @@
 // eslint-disable-next-line no-unused-vars
-import Modal from "./Modals/WaitList";
+import WaitList from "./Modals/WaitList";
+import ClaimDate from "./Modals/ClaimDate";
 import { useState } from "react";
 
 function Table(props) {
   const [modalData, setModalData] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [showClaimModal, setShowClaimModal] = useState(false);
 
   return (
     <>
-      <table className="table-auto w-full text-left dark:bg-slate-900 dark:text-slate-400">
+      <table className="table-auto px-4 w-full text-left">
         <thead>
           <tr className="text-left">
             <th>Location</th>
@@ -18,28 +20,33 @@ function Table(props) {
         </thead>
         <tbody className="text-left">
           {props.ques.map((que) => (
-            <tr key={que.id} className="bg-none">
-              <td
-                className=""
-                type="button"
-                onClick={() => {
-                  setModalData(que);
-                  setShowModal(true);
-                }}
-              >
-                {que.location}
-              </td>
+            <tr
+              key={que.id}
+              className="bg-none"
+              style={{ borderBottom: "1px solid lightgray" }}
+              onClick={() => {
+                setModalData(que);
+                setShowModal(true);
+              }}
+            >
+              <td className="py-3 text-blue-400">{que.location}</td>
               <td>{que.time}</td>
-              <td>{que.status}</td>
+              <td className="text-primary test-sm">{que.status}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <Modal
+      <WaitList
         showModal={showModal}
         setShowModal={setShowModal}
+        setShowClaimModal={setShowClaimModal}
         modalData={modalData}
-      ></Modal>
+      ></WaitList>
+      <ClaimDate
+        showModal={showClaimModal}
+        setShowClaimModal={setShowClaimModal}
+        modalData={modalData}
+      ></ClaimDate>
     </>
   );
 }

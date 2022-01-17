@@ -7,7 +7,6 @@ function App() {
   const [theme, setTheme] = useState(localStorage.getItem("darkmode"));
 
   function changeTheme() {
-    console.log("hitting");
     if (theme) {
       setTheme(false);
       return localStorage.removeItem("darkmode");
