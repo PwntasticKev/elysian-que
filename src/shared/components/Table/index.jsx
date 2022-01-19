@@ -29,7 +29,7 @@ function Table(props) {
                 setShowModal(true);
               }}
             >
-              <td className="py-3 text-blue-400">{que.location}</td>
+              <td className="py-3 font-bold text-blue-400">{que.location}</td>
               <td>{que.time}</td>
               <td className="text-primary test-sm">{que.status}</td>
             </tr>

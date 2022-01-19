@@ -53,6 +53,8 @@ model que {
   student_phone Int?
   expired       Int?
   updated_at    DateTime? @db.Timestamp(6)
+  claimed_by    String?
+  waiting_list  String[]?
 }
 
 model students {

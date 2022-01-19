@@ -27,8 +27,4 @@ export const headerData = [
     text: "Que",
     link: "/que",
   },
-  {
-    text: "Sams",
-    link: "/sam",
-  },
 ];

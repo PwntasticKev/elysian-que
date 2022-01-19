@@ -11,14 +11,18 @@ export default function Modal(props) {
             style={{ background: "rgba(54, 25, 25, .00004)" }}
           >
             <div
-              className="relative w-auto my-6 mx-auto max-w-3xl mx-3 rounded"
+              className="relative w-auto my-6 mx-3 rounded"
               style={{ background: "white" }}
             >
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none dark:bg-slate-900 dark:text-slate-400">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                   <h5 className="text-xl text-center font-semibold dark:text-white">
-                    Join wait list for {props.modalData.time} in{" "}
-                    {props.modalData.location}
+                    Join wait list for{" "}
+                    <span className="text-primary">{props.modalData.time}</span>{" "}
+                    in{" "}
+                    <span className="text-primary">
+                      {props.modalData.location}
+                    </span>
                   </h5>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-3xl text-black dark:text-white"
