@@ -54,7 +54,7 @@ model que {
   expired       Int?
   updated_at    DateTime? @db.Timestamp(6)
   claimed_by    String?
-  waiting_list  String[]?
+  waiting_list  String?   @default("'[]'")
 }
 
 model students {
